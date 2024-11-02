@@ -1,9 +1,10 @@
 import { LoginForm } from "../Types";
 
+const BASE_URL = 'https://instax-backend.onrender.com'
 
 export const checkInfo = async (data: LoginForm) => {
     try {
-      const response = await fetch(' http://127.0.0.1:5000/api/v1/auth/check-account', {
+      const response = await fetch(`${BASE_URL}/api/v1/auth/check-account`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -12,7 +13,7 @@ export const checkInfo = async (data: LoginForm) => {
       });
   
       if (!response.ok) {
-        throw new Error('Error while verifying.');
+        throw new Error('Erreur lors de l\'enregistrement');
       }
   
       return await response.json(); // Retourne les données de réponse

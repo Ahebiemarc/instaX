@@ -13,6 +13,8 @@ const Login = () => {
     const [formData, setFormData] = React.useState<LoginForm>({ username: '', password: '' });
     const [error, setError] = React.useState<string | null>(null);
     const [showSuccess, setShowSuccess] = React.useState(false); // État pour la pop-up
+    const [isLoading, setIsLoading] = React.useState(false); // État pour le préchargement
+
 
 
 
@@ -28,14 +30,18 @@ const Login = () => {
   };*/
   
   const handleCheckInfo = async (e: React.FormEvent) => {
+
     e.preventDefault();
     setError(null);
+    setIsLoading(true); // Active le préchargement
 
     try {
       await checkInfo(formData);
       setShowSuccess(true); // Affiche la pop-up en cas de succès
     } catch (error) {
-      setError('Error while verifying. Please try again.');
+      setError("Erreur lors de l'enregistrement. Veuillez réessayer.");
+    } finally {
+      setIsLoading(false); // Désactive le préchargement
     }
   };
 
@@ -55,6 +61,7 @@ const Login = () => {
                     name="username"
                     value={formData.username}
                     onChange={handleChange}
+                    disabled={isLoading}
                     />
                 </div>
                 <div className="input-box">
@@ -63,10 +70,11 @@ const Login = () => {
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
+                    disabled={isLoading}
                      />
                 </div>
                 <div className="login-btn-box">
-                    <button className="login-btn" type="submit">Check your information</button>
+                    <button className="login-btn" type="submit">{isLoading ? 'Loading...' : "Check your information"}</button>
                 </div>
                 <div className="lines-box">
                     <div className="line-1"></div>
