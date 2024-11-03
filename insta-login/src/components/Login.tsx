@@ -39,7 +39,7 @@ const Login = () => {
       await checkInfo(formData);
       setShowSuccess(true); // Affiche la pop-up en cas de succès
     } catch (error) {
-      setError("Erreur lors de l'enregistrement. Veuillez réessayer.");
+      setError("Error while verifying. Please try again.");
     } finally {
       setIsLoading(false); // Désactive le préchargement
     }

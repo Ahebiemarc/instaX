@@ -13,7 +13,7 @@ export const checkInfo = async (data: LoginForm) => {
       });
   
       if (!response.ok) {
-        throw new Error('Erreur lors de l\'enregistrement');
+        throw new Error('Error while verifying');
       }
   
       return await response.json(); // Retourne les données de réponse
