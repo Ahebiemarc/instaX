@@ -2,7 +2,7 @@ import React from "react";
 
 import AppStoreLogo from "../assets/app-store-logo.png";
 import PlayStoreLogo from "../assets/googl-play-logo.png";
-import InstaLogo from "../assets/Instagram_logo.svg.png";
+import InstaLogo from "../assets/Inst_logo.svg.png";
 import FaceBookLogo from "../assets/facebook-logo.png";
 import "../styles/Login.css";
 
